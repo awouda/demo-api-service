@@ -5,7 +5,7 @@ import akka.event.{ Logging, LoggingAdapter }
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
 
-object Main extends App with Routes with DefaultSettingsProvider with AskTimeoutProvider {
+object Main extends App with ApiRoutes with DefaultSettingsProvider with AskTimeoutProvider {
 
   implicit val system = ActorSystem("demo-api-service")
   implicit override val executionContext = system.dispatcher
@@ -16,12 +16,7 @@ object Main extends App with Routes with DefaultSettingsProvider with AskTimeout
 
   log.info(s"Starting up")
 
-  Http().bindAndHandle(routes, "0.0.0.0", Settings(system).Http.Port)
-}
-
-trait Routes extends ApiRoutes with ShipmentService {
-
-  val routes =  apiRoutes
+  Http().bindAndHandle(apiRoutes, "0.0.0.0", Settings(system).Http.Port)
 }
 
 trait ActorSystemProvider {
