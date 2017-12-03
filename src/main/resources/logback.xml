@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="false">
+    <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener" />
+
+    <logger name="akka" level="${LOGLEVEL_AKKA:-INFO}" />
+    <logger name="com.jtm.testapi" level="${LOGLEVEL_APP:-DEBUG}" />
+    <logger name="com.zaxxer" level="${LOGLEVEL_APP:-INFO}" />
+
+    <root level="${LOGLEVEL_ROOT:-INFO}">
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <target>System.out</target>
+            <encoder>
+                <pattern>%d{ISO8601} %-5level [%logger{0}] - %msg%n</pattern>
+            </encoder>
+        </appender>
+    </root>
+</configuration>
