@@ -26,6 +26,10 @@ class ShipmentActor extends Actor with StorageCount {
   override def receive: Receive = {
     case s: String ⇒
       val value = agent()
+
+      //above agent is just for fun, think it will (is?) be deprecated
+      //the idea here is to call some external  api for example
+
 //      http
 //        .singleRequest(
 //          HttpRequest(

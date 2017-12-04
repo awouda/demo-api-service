@@ -1,4 +1,28 @@
+import com.typesafe.sbt.packager.docker._
+
+name := "demo-api-service"
+
+version := "0.1-SNAPSHOT"
+
 scalaVersion := "2.12.4"
+
+packageName in Docker := "demo-api-service"
+
+//alpine linux results in much light docker image
+dockerBaseImage := "anapsix/alpine-java"
+
+val port = 9023
+
+dockerExposedPorts := Seq(port)
+
+dockerCommands ++= Seq(
+  // setting the run script executable
+  Cmd("ENV", s"SERVICE_PORT=$port")
+)
+
+unmanagedResourceDirectories in Compile += {
+  baseDirectory.value / "src/main/resources"
+}
 
 val akkaVersion = "2.4.16"
 val akkaHttpVersion = "10.0.5"
@@ -19,6 +43,10 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "3.0.0" % "test, it"
 )
 
+unmanagedResourceDirectories in Compile += {
+  baseDirectory.value / "src/main/resources"
+}
+
 Defaults.itSettings
 parallelExecution in IntegrationTest := false
 
@@ -28,6 +56,6 @@ lazy val `demo-api-service` =
     .enablePlugins(JavaAppPackaging)
     .configs(IntegrationTest)
 
-mainClass := Some("com.jtm.testapi.Main")
+mainClass := Some("com.tnt.tnttestapi.Main")
 topLevelDirectory := None
 name in Universal := name.value
