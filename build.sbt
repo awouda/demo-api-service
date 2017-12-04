@@ -56,6 +56,6 @@ lazy val `demo-api-service` =
     .enablePlugins(JavaAppPackaging)
     .configs(IntegrationTest)
 
-mainClass := Some("com.tnt.tnttestapi.Main")
+mainClass := Some("com.jtm.testapi.Main")
 topLevelDirectory := None
 name in Universal := name.value
