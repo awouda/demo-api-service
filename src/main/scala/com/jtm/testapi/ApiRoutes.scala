@@ -11,13 +11,14 @@ trait ApiRoutes extends Directives with AskTimeoutProvider
   with ExternalServiceRoute
   with RejectedRoute
   with FormRoute
+  with DemoJsonRoute
   with ExistingRoute  with FailingRoute {
 
   val apiRoutes = pathPrefix("handled") {
 
     handleExceptions(exceptionHandling) {
       handleRejections(requestNotHandled) {
-        externalServiceRoute ~ existingRoute ~ failingRoute ~ formRoute ~ rejectedRoute
+        externalServiceRoute ~ existingRoute ~ failingRoute ~ formRoute ~ rejectedRoute ~ demoJson
       }
     }
   }
