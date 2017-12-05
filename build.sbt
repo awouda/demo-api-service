@@ -35,11 +35,15 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-agent" % akkaVersion,
   "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
   "de.heikoseeberger" %% "akka-http-circe" % "1.18.0",
+  "org.scalikejdbc" %% "scalikejdbc"       % "3.1.0",
+  "org.scalikejdbc" %% "scalikejdbc-test"   % "3.1.0"   % "test",
+  "com.h2database"  %  "h2"                % "1.4.196",
+  "org.scalikejdbc" %% "scalikejdbc-config"  % "3.1.0",
   "io.circe" %% "circe-core" % circeVersion,
   "io.circe" %% "circe-generic" % circeVersion,
   "com.iheart" %% "ficus" % "1.4.3",
   "io.circe" %% "circe-parser" % circeVersion,
-  "ch.qos.logback" % "logback-classic" % "1.1.7",
+  "ch.qos.logback" % "logback-classic" % "1.2.3",
   "com.typesafe.akka" %% "akka-http-testkit" % akkaHttpVersion % "test",
   "org.scalatest" %% "scalatest" % "3.0.0" % "test, it"
 )
