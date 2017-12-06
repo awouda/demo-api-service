@@ -27,6 +27,8 @@ unmanagedResourceDirectories in Compile += {
 val akkaVersion = "2.4.16"
 val akkaHttpVersion = "10.0.5"
 val circeVersion = "0.6.1"
+val slickVersion = "3.2.1"
+val mysqlVersion = "5.1.16"
 
 libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-actor" % akkaVersion,
@@ -34,11 +36,11 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-slf4j" % akkaVersion,
   "com.typesafe.akka" %% "akka-agent" % akkaVersion,
   "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
+  "com.typesafe.slick" %% "slick" % slickVersion,
   "de.heikoseeberger" %% "akka-http-circe" % "1.18.0",
-  "org.scalikejdbc" %% "scalikejdbc"       % "3.1.0",
-  "org.scalikejdbc" %% "scalikejdbc-test"   % "3.1.0"   % "test",
   "com.h2database"  %  "h2"                % "1.4.196",
-  "org.scalikejdbc" %% "scalikejdbc-config"  % "3.1.0",
+  "org.flywaydb" % "flyway-core" % "4.0.3",
+  "mysql" % "mysql-connector-java" % mysqlVersion,
   "io.circe" %% "circe-core" % circeVersion,
   "io.circe" %% "circe-generic" % circeVersion,
   "com.iheart" %% "ficus" % "1.4.3",
